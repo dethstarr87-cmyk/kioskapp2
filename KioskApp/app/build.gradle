@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.kiosk.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.kiosk.app"
+        minSdk 21          // Android 5.0 Lollipop and above
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // Enable WebView debugging in debug builds
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    // No external dependencies needed — uses Android's built-in WebView
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- The WebView fills the entire screen -->
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Thin progress bar at top while page loads -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_gravity="top"
+        android:max="100"
+        android:progressTint="#2196F3"
+        android:visibility="gone" />
+
+    <!-- Error / Offline overlay -->
+    <FrameLayout
+        android:id="@+id/errorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC000000"
+        android:visibility="gone">
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="32dp">
+
+            <!-- Wi-Fi / error icon (text-based for simplicity) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚠"
+                android:textSize="64sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/errorText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Connection error"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginBottom="24dp" />
+
+            <Button
+                android:id="@+id/retryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Retry Now"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2196F3"
+                android:paddingHorizontal="32dp"
+                android:paddingVertical="12dp" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>
