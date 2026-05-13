@@ -35,7 +35,7 @@ public class KioskActivity extends Activity {
     // =========================================================
     //  CONFIGURATION — edit these values before building
     // =========================================================
-    private static final String KIOSK_URL      = "https://blog.agdisplays.com/";   // <-- Set your URL
+    private static final String KIOSK_URL      = "https://www.agdisplays.com/";   // <-- Set your URL
     private static final boolean LOCK_TO_URL   = true;   // prevent navigation away from domain
     private static final int     RELOAD_DELAY  = 5000;   // ms before retrying on error
     private static final boolean SHOW_PROGRESS = true;   // show loading bar
