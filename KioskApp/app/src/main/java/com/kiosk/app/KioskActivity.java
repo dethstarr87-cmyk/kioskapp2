@@ -80,7 +80,19 @@ public class KioskActivity extends Activity {
         retryButton.setOnClickListener(v -> loadKioskUrl());
 
         // Load the kiosk URL
-        loadKioskUrl();
+       // ----------------------------------------------------------
+    //  Load (or reload) the kiosk URL — waits for Wi-Fi
+    // ----------------------------------------------------------
+    private void loadKioskUrl() {
+        mErrorLayout.setVisibility(View.GONE);
+
+        if (isNetworkAvailable()) {
+            mWebView.loadUrl(KIOSK_URL);
+        } else {
+            showError("Waiting for Wi-Fi connection...");
+            // Check every 3 seconds until Wi-Fi is available
+            mHandler.postDelayed(this::loadKioskUrl, 3000);
+        }
     }
 
     // ----------------------------------------------------------
