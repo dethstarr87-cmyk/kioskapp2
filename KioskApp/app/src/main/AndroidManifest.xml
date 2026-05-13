@@ -20,21 +20,19 @@
         android:hardwareAccelerated="true">
 
         <!-- Main Kiosk Activity -->
-        <activity
-            android:name=".KioskActivity"
-            android:exported="true"
-            android:launchMode="singleInstance"
-            android:screenOrientation="landscape"
-            android:configChanges="orientation|screenSize|keyboardHidden|keyboard"
-            android:windowSoftInputMode="adjustResize"
-            android:stateNotNeeded="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.HOME" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+<activity
+    android:name=".KioskActivity"
+    android:theme="@style/Theme.KioskApp"
+    android:exported="true"
+    android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+    android:screenOrientation="landscape"
+    android:launchMode="singleTask">
+    
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
 
         <!-- Boot Receiver: auto-starts app on device power-on -->
         <receiver
